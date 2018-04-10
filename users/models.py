@@ -7,6 +7,9 @@ class Company(models.Model):
     motto = models.CharField(max_length=100) #Go Buffs!  Go Greeks, etc.
     mascot = models.CharField(max_length=100) #Buffalos, Greeks.
 
+    def __str__(self):
+        return (self.shortname + "-" + str(self.regiment))
+
 class Cadet(models.Model):
     first = models.CharField(max_length=200)
     last = models.CharField(max_length=200)
