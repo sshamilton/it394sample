@@ -4,12 +4,14 @@
 <ul>
 
   {% for cadet in cadets %}
-      <li><a href="./{{cadet.id}}">{{cadet.name}}</a></li>
+      <li><a href="./{{cadet.id}}">{{cadet.name}}</a> {{cadet.company}}</li>
   {% endfor %}
 
 </ul>
 {% else %}
 <p>No cadets in database</p>
 {% endif %}
+
+<a href="add">Add cadet to database</a>
 
 

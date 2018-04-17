@@ -3,6 +3,9 @@ from django.template import loader
 from .models import Cadet
 from .models import Company
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
+
+from .forms import CadetForm
 
 # Create your views here.
 def index(request):
@@ -31,4 +34,15 @@ def update(request, cadet_id):
     context = {'cadet':cadet, 'companies': companies}
     return render(request, 'users/detail.html', context)
 
+def addcadet(request):
+    if request.method == 'POST':
+        form = CadetForm(request.POST)
+        if form.is_valid():
+            #Add the cadet to the database
+            newcadet = form.save()
+            #Go back to cadet list
+            return HttpResponseRedirect('/users')
+    else:
+        form = CadetForm()
+    return render(request, 'users/add.html', {'form': form})
 
