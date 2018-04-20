@@ -6,4 +6,9 @@ class CadetForm(forms.ModelForm):
         model = Cadet
         fields = '__all__'
 
+class CompanyForm(forms.ModelForm):
+    class Meta:
+        model = Company
+        fields = '__all__'
+
 

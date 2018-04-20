@@ -6,6 +6,10 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 
 from .forms import CadetForm
+from .forms import CompanyForm
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
@@ -35,6 +39,7 @@ def update(request, cadet_id):
     return render(request, 'users/detail.html', context)
 
 def addcadet(request):
+    #if user.has_perm('cadet.add_cadet'):
     if request.method == 'POST':
         form = CadetForm(request.POST)
         if form.is_valid():
@@ -45,4 +50,18 @@ def addcadet(request):
     else:
         form = CadetForm()
     return render(request, 'users/add.html', {'form': form})
+    #else:
+        #return HttpResponseRedirect('/users')
 
+def addcompany(request):
+    #if user.has_perm('cadet.add_cadet'):
+    if request.method == 'POST':
+        form = CompanyForm(request.POST)
+        if form.is_valid():
+            #Add the cadet to the database
+            newcompany = form.save()
+            #Go back to cadet list
+            return HttpResponseRedirect('/users')
+    else:
+        form = CompanyForm()
+    return render(request, 'users/add.html', {'form': form})
