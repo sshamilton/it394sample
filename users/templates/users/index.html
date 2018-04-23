@@ -1,5 +1,10 @@
-{% extends 'base_generic.html' %}
+{% extends 'users/base_generic.html' %}
 {% block content %}
+{% if user.is_authenticated %}
+<p>Welcome, {{ user.get_username }}.
+{% else %}
+login
+{% endif %}
 
 <h2>Cadet List</h2>
 
@@ -15,6 +20,9 @@
 <p>No cadets in database</p>
 {% endif %}
 
+{% if user.is_authenticated and perms.user.add_cadet %}
 <a href="add">Add cadet to database</a>
+{% endif %}
+
 
 {% endblock %}
