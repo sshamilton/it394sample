@@ -1,11 +1,12 @@
 {% extends 'users/base_generic.html' %}
 {% block content %}
 {% if user.is_authenticated %}
-<p>Welcome, {{ user.get_username }}.
+<p>Welcome, {{ user.get_username }}.  
+<a href="{% url 'logout' %}">Log Out</a>
 {% else %}
-login
+<a href="{% url 'login' %}">Log In</a>
 {% endif %}
-
+<p>
 <h2>Cadet List</h2>
 
 {% if cadets %} <!-- check if list is full or empty -->
@@ -23,6 +24,6 @@ login
 {% if user.is_authenticated and perms.user.add_cadet %}
 <a href="add">Add cadet to database</a>
 {% endif %}
-
+</p>
 
 {% endblock %}

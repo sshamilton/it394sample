@@ -7,9 +7,6 @@ from django.http import HttpResponseRedirect
 
 from .forms import CadetForm
 from .forms import CompanyForm
-from django.contrib.auth.decorators import permission_required
-from django.contrib.auth.mixins import PermissionRequiredMixin
-from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 def index(request):
