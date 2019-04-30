@@ -64,10 +64,10 @@ def addcompany(request):
     if request.method == 'POST':
         form = CompanyForm(request.POST)
         if form.is_valid():
-            #Add the cadet to the database
+            #Add the company to the database
             newcompany = form.save()
             #Go back to cadet list
             return HttpResponseRedirect('/users')
     else:
         form = CompanyForm()
-    return render(request, 'users/add.html', {'form': form})
+    return render(request, 'users/addcompany.html', {'form': form})
