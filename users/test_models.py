@@ -1,10 +1,11 @@
 from django.test import TestCase
-from users.models import Cadet
+from users.models import Cadet, Company
 
 class CadetTestCase(TestCase):
     def setUp(self):
-        Cadet.objects.create(first="John", last="Doe", xnumber="x91111")
-        Cadet.objects.create(first="Jane", last="Doe", xnumber="x92222")
+        co = Company.objects.create(shortname="A", longname="Alpha", regiment=1, motto="Spartans", mascot="Spartan")
+        Cadet.objects.create(first="John", last="Doe", xnumber="x91111", company=co)
+        Cadet.objects.create(first="Jane", last="Doe", xnumber="x92222", company=co)
 
     def test_cadets_(self):
         """All cadets should have an xnumber, first, and last name"""
