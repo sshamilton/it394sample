@@ -65,7 +65,7 @@ openshot-qt==2.4.3
 padme==1.1.1
 paramiko==2.6.0
 pexpect==4.6.0
-Pillow==7.1.1
+Pillow==8.3.2
 plainbox==0.25
 ply==3.11
 protobuf==3.6.1
