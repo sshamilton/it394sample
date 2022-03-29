@@ -63,7 +63,7 @@ olefile==0.46
 onboard==1.4.1
 openshot-qt==2.4.3
 padme==1.1.1
-paramiko==2.6.0
+paramiko==2.10.1
 pexpect==4.6.0
 Pillow==7.1.1
 plainbox==0.25
