@@ -57,7 +57,7 @@ monotonic==1.5
 netaddr==0.7.19
 netifaces==0.10.4
 ntlm-auth==1.1.0
-numpy==1.16.2
+numpy==1.22.0
 oauthlib==2.1.0
 olefile==0.46
 onboard==1.4.1
